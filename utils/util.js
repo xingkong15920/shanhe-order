@@ -14,8 +14,8 @@ const formatNumber = n => {
     n = n.toString()
     return n[1] ? n : '0' + n
 }
-const server = "http://192.168.1.250:5006/hs-app-server/";
-//const server = "https://wxdc.hongxiaosou.cn/hs-app-server/";
+//const server = "http://192.168.1.250:5006/hs-app-server/";
+const server = "https://wxdc.hongxiaosou.cn/hs-app-server/";
 function request(param, showLoading = true) {
     var that = this;
     var header = param.header ? param.header : {};
