@@ -1,0 +1,180 @@
+/* pages/webview/index.wxss */
+
+/* pages/webview/index.wxss */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.renwu {
+    width: 600rpx;
+    height: 690rpx;
+    position: absolute;
+    top: 400rpx;
+    left: 40rpx;
+    background-color: #fff;
+    border-radius: 15rpx;
+    z-index: 45;
+    padding: 0 32rpx;
+    margin-bottom: 49rpx;
+}
+
+.renwuBox {
+    width: 587rpx;
+    height: 480rpx;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.leftImg {
+    width: 22rpx;
+    height: 482rpx;
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    z-index: 45;
+}
+
+.rightBox {
+    width: 565rpx;
+    height: 482rpx;
+    position: absolute;
+    left: 22rpx;
+    top: 0;
+    z-index: 45;
+}
+
+.renwuL {
+    height: 64rpx;
+    margin-bottom: 40rpx;
+}
+
+.renwuText {
+    width: 100%;
+    height: 68px;
+    border-bottom: 1rpx solid #c1c1c1;
+    font: 26rpx;
+    line-height: 68px;
+    color: #0053f1;
+    margin-bottom: 38rpx;
+}
+
+.bgm {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 22;
+}
+
+.rightBox {
+    vertical-align: top;
+    height: 64rpx;
+}
+
+.renwuT {
+    display: inline-block;
+    width: 200rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 26rpx;
+    margin-left: 24rpx;
+    vertical-align: top;
+}
+
+.renwuM {
+    display: inline-block;
+    vertical-align: top;
+    width: 135rpx;
+    height: 64rpx;
+	float:right;
+}
+
+.renwuJ {
+    display: inline-block;
+    width: 64rpx;
+    height: 64rpx;
+    vertical-align: top;
+    margin-left: 20rpx;
+		float:right;
+}
+.renwuA{
+	transform: translate3d(0, 0, 0);
+    animation: play 2s linear infinite;
+}
+@keyframes play {
+    0% {
+        /*transform:rotateY(0deg);
+transform:rotateX(0deg);*/
+        transform: rotateY(0deg);
+        /*
+transform:rotate(0deg);
+*/
+    }
+
+    100% {
+        /*transform:rotateY(360deg);
+
+transform:rotateX(360deg);
+*/
+        transform: rotateY(360deg);
+        /*transform:rotate(-360deg);
+*/
+    }
+}
+
+.ggBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+    background-color: rgba(141, 141, 141, 0.7);
+}
+
+.gg {
+    width: 600rpx;
+    height:  600rpx;
+    z-index: 50;
+    position: relative;
+    margin-top: 20%;
+    margin-left: 70rpx;
+}
+
+.cloBtn {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    color: red;
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    z-index: 55;
+}
+
+.goBtn {
+    width: 100%;
+    height: 200rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,87 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx2874eab47f3b286f",
+	"projectname": "%E8%B1%86%E6%9E%9C%E8%87%AA%E5%8A%A9",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "二维码传参",
+					"pathName": "pages/main/index",
+					"query": "shopNum=1000180607300325819&tabletableNumber=ZT4a4650",
+					"scene": "1011"
+				}
+			]
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "二维码传参鸿搜网络店",
+					"pathName": "pages/main/index",
+					"query": "shopNumber=1000181007300324376&tabletableNumber=ZTB4EF91",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "二维码传参联盟路店",
+					"pathName": "pages/main/index",
+					"query": "shopNumber=1000180607300325819&tabletableNumber=ZT356028",
+					"scene": "1011"
+				},
+				{
+					"id": 2,
+					"name": "二维码传参11111",
+					"pathName": "pages/main/index",
+					"query": "shopNumber=1000190107300321962&tabletableNumber=SHBCDC1C",
+					"scene": 1011
+				},
+				{
+					"id": 3,
+					"name": "二维码传参aobei",
+					"pathName": "pages/main/index",
+					"query": "shopNumber=1000181023300329067&tabletableNumber=SHEBBC02",
+					"scene": null
+				}
+			]
+		}
+	}
+}

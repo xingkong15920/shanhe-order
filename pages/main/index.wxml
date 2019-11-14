@@ -1,0 +1,52 @@
+<view class="login">
+  <view class='table_num'>
+    <image src='../../utils/images/canting.png' class='table_num_img' mode="widthFix"></image>
+    <view class='table_num_name'>{{shopName}}</view>
+    <button class='table_num_zhuohao'>{{regionName}} {{anumber}} 桌</button>
+  </view>
+  <view class='section' style='margin-top:20%;text-align:center;'>
+
+    <!-- <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else> -->
+        <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
+		<!-- <open-data type="userAvatarUrl" class="userinfo-avatar"  mode="cover"></open-data> -->
+        <!-- <text class="userinfo-nickname user_name">{{userInfo.nickName}}</text> -->
+      <!-- </block>
+    </view> -->
+<!-- 
+<open-data type="userAvatarUrl"></open-data> -->
+
+
+    <view class='user_name'><open-data type="userNickName" class="nameStyle"></open-data></view>
+    <view class='user_name2'>欢迎光临</view>
+	<!-- <button class="flex-item" open-type="getUserInfo" style='margin-top:10%' data-statu="open" bindgetuserinfo="onGotUserInfo" >  -->
+        <view class='listbg' style="margin-top:10%">
+          <image src='../../utils/images/diancan.png' class='diancanimg' mode="widthFix" bindtap="showModalStatus123"></image>
+        </view>
+        <view ></view>
+      <!-- </button> -->
+    <!-- <view class="flex-wrp dclist" style="flex-direction:row;margin-top:10%" >
+      
+      <button class="flex-item" open-type="getUserInfo" data-statu="open" bindgetuserinfo="onGotUserInfo1" > 
+        <view class='listbg'>
+          <image src='../../utils/images/zhifu.png' class='zhifuimg' mode="widthFix"></image>
+        </view>
+        <view>支付</view>
+      </button>
+    </view> -->
+  </view>
+
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view class='jcrs drawer_box' animation="{{animationData}}" wx:if="{{showModalStatus}}">
+    <view class='jcrstit'>请选择就餐人数</view>
+    <view class='appointent-date'>
+      <view class="appointent-date-div {{state==index?'active-tag':''}}" bindtap="select_date" wx:for="{{dates}}" data-key='{{index}}' wx:key="{{index}}">
+        <view class="flex-item jcrslist">
+          <rich-text class='data_name'>{{item.data_name}}</rich-text>
+        </view>
+      </view>
+    </view>
+    <button class='jcrsbtn' bindtap='tiaozhuan'>确认</button>
+  </view>
+</view>

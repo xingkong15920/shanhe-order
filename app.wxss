@@ -1,0 +1,16 @@
+/**app.wxss**/
+.warp{
+    width: 100vw;
+    height: 100vh;
+}
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.icon{
+    display: inline-block;
+}
+.icon-right{
+    /* background:  */
+}

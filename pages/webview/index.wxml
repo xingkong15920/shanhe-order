@@ -1,0 +1,55 @@
+<view>
+    <view class='main' bindtap='imgaaa'>
+        <image src='img/bg.png' class='bgm'></image>
+        <!-- <view class='cloBtn'>X</view> -->
+    </view>
+    <view class='renwu'>
+        <view class='renwuText'>今日任务</view>
+        <view class='renwuBox'>
+            <image src="img/left.png" class='leftImg'></image>
+            <view class='rightBox'>
+                <view class='renwuL' bindtap='goto1'>
+                    <view class='renwuT'>今日扫码登录</view>
+					 <image class="renwuJ {{goNum == 1 ? 'renwuA' : ' ' }}" src='img/jinbi.png'></image>
+                    <image class='renwuM' src="{{goNum == 1 ? 'img/dianwo.png' : ' '}}"></image>
+                   
+				</view>
+                   <view  class='renwuL'  bindtap='goto2'>
+                    <view class='renwuT'>完成一笔支付</view>
+					<image  class="renwuJ {{goNum == 2 ? 'renwuA' : ' ' }}" src='img/jinbi.png'></image>
+                    <image class='renwuM' src="{{goNum == 2 ? 'img/dianwo.png' : ' '}}"></image>
+                    
+				</view>
+				<view  class='renwuL' bindtap='goto3'>
+                    <view class='renwuT'>到店扫码支付</view>
+					<image  class="renwuJ {{goNum == 3 ? 'renwuA' : ' ' }}" src='img/jinbi.png' ></image>
+                    <image class='renwuM' src="{{goNum == 3 ? 'img/dianwo.png' : ' '}}"></image>
+                    
+				</view>
+				<view  class='renwuL'  bindtap='goto4'>
+                    <view class='renwuT'>每日专属好礼</view>
+					<image  class="renwuJ {{goNum == 4 ? 'renwuA' : ' ' }}" src='img/jinbi.png'></image>
+                    <image class='renwuM'  src="{{goNum == 4 ? 'img/dianwo.png' : ' '}}"></image>
+                    
+				</view>
+				<view  class='renwuL'  bindtap='goto5'>
+                    <view class='renwuT'>福利升级</view>
+					<image  class="renwuJ {{goNum == 5 ? 'renwuA' : ' ' }}" src='img/jinbi.png'></image>
+                    <image class='renwuM' src="{{goNum == 5 ? 'img/dianwo.png' : ' '}}"></image>
+                    
+				</view>
+
+            </view>
+
+        </view>
+
+    </view>
+    <view wx:if="{{showModalStatus}}" animation="{{animationData}}" class='ggBox'>
+
+        <image src='img/shanpinke.png' class='gg' bindtap='goBtn'>
+
+        </image>
+    </view>
+    <!-- <image src="../wxpay/img/minipro.jpg" style='width:100%;height:700px' bindtap="toPro"></image> -->
+
+</view>

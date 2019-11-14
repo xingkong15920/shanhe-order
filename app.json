@@ -1,0 +1,19 @@
+{
+	"pages": [
+		"pages/main/index",
+		"pages/list/index",
+		"pages/wxpay/index",
+		"pages/webview/index",
+		"pages/logs/logs"
+	],
+	"window": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#2F2F2F",
+		"backgroundColor": "#2F2F2F"
+	},
+	"navigateToMiniProgramAppIdList": [
+		"wxab663d95bde40a31"
+	],
+	"sitemapLocation": "sitemap.json"
+}

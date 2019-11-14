@@ -1,0 +1,229 @@
+<!--pages/list/index.wxml-->
+<view class='warp'>
+    <view class='header'>
+        <view class='topWarp'>
+            <view class='title'>
+                <image src='../../utils/images/ditu.png' style='width:60rpx;height:60rpx;'></image>
+                <view>{{shopName}}</view>
+                <view class='icon icon-right iconfont icon-zuoyoujiantou'></view>
+            </view>
+            <view class='searchWarp'>
+                <image src='../../utils/images/sousuo.png' style='width:30rpx;height:30rpx;'></image>
+                <input placeholder="大汉堡" value="{{wxSearchData}}" bindinput="wxSearchInput" bindconfirm="wxSearchConfirm"></input>
+				
+            </view>
+        </view>
+
+        <!-- 头像 -->
+        <scroll-view scroll-x="true" class='userHeadWarp' hidden="{{userArr.length<1}}">
+            <view wx:for="{{userArr}}" wx:key="{{index}}" class='userHeads'>
+                <image src="{{item.imgUrl}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+
+
+    <view class="tabWarp {{userArr.length > 0 ? 'h240' : 'h80'}}" >
+        <!-- 分类 -->
+        <scroll-view scroll-y="true" class='classWarp'>
+            <view class="classList {{item.categoryNumber == classIndex ? 'active' : ''}}" wx:for="{{classArr}}" wx:key="{{index}}" data-index="{{item.categoryNumber}}" bindtap="saveClass">{{item.categoryName}}
+                <!-- <view class='classList-num'>1</view> -->
+            </view>
+        </scroll-view>
+
+        <!-- 餐品 -->
+        <scroll-view scroll-y="true" class="shopWarp">
+            <view wx:for="{{foodArr}}" wx:key="{{index}}" class="foodList " hidden="{{classIndex != 0  && item.cateGoryType != classIndex}}" wx:if="{{item.isHide == true}}">
+                <view>
+                </view>
+                <view class='icon'>
+                    <image src="{{item.foodProductsPicture}}" bindload="imageLoad"></image>
+                </view>
+                <view class='foodInfo' >
+                    <view class='foodTitle name'>{{item.singleProductName}}
+                        <text hidden='{{!item.normsName}}'>({{item.normsName}})</text>
+                    </view>
+                    <view class='price'>
+                        <text class='price-n'>¥{{item.showPrice}}</text> /例</view>
+                </view>
+                <!--cartControl-->
+                <view wx:if="{{item.foodType==0}}" class="cartControl-wrapper">
+                    <!-- 减号 -->
+                    <view class="cart-decrease" wx:if="{{cartData[item.packageNumber]}}">
+                        <view class="iconfont icon-jian" style="font-size:22px;color:#FFCA3B;" data-index="{{item.packageNumber}}" bindtap="bindMinus"  data-type="{{item.foodType}}"></view>
+                    </view>
+                    <!-- 数字 -->
+                    <view class="cart-count" wx:if="{{cartData[item.packageNumber]}}" data-index="{{item.packageNumber}}">{{cartData[item.packageNumber]}}</view>
+                    <!-- 加号 -->
+                    <view class="cart-decrease" bindtap="bindPlus">
+                        <view class="iconfont icon-jia cart-add" style="font-size:22px;color:#FFCA3B;" data-index="{{item.packageNumber}}" bindtap="bindPlus"></view>
+                    </view>
+                </view>
+                <view wx:if="{{item.foodType==2}}" class="cartControl-wrapper">
+
+                    <view class='choosebtn' data-index="{{item.groupPackageNumber}}" data-statu="open" bindtap="powerDrawer_GG"> 选餐品 </view>
+                    <!-- <text class='choosebtn-num' hidden="">1</text> -->
+                </view>
+                <view wx:if="{{item.foodType==1}}" class="cartControl-wrapper" data-index="{{index}}">
+					
+                    <view class='choosebtn' data-index="{{item.singleProductNumber}}" bindtap="powerDrawer_modal" data-statu="open" hidden="{{item.shopStandarList.length <=1}}">选规格</view>
+					<view hidden="{{item.shopStandarList.length >1 }}" class="cartControl-wrapper" style="bottom:-5px;">
+                    <!-- 减号 -->
+                    <view class="cart-decrease" wx:if="{{cartData[item.singleProductNumber]}}">
+                        <view class="iconfont icon-jian" style="font-size:22px;color:#FFCA3B;" data-index="{{item.singleProductNumber}}" bindtap="bindMinus" data-type="{{item.foodType}}"></view>
+                    </view>
+                    <!-- 数字 -->
+                    <view class="cart-count" wx:if="{{cartData[item.singleProductNumber]}}" data-index="{{item.singleProductNumber}}">{{cartData[item.singleProductNumber]}}</view>
+                    <!-- 加号 -->
+                    <view class="cart-decrease" bindtap="bindPlus">
+                        <view class="iconfont icon-jia cart-add" style="font-size:22px;color:#FFCA3B;" data-index="{{item.singleProductNumber}}" bindtap="bindPlusl"></view>
+                    </view>
+					</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class='bottomCart' bindtap="powerDrawer">
+        <view class='cart-left'>
+            <view class='cart-price'>{{payNum}}
+                <text class='cart-num' hidden="{{payData.length == 0}}">{{payAllNum}}</text>
+            </view>
+        </view>
+        <view class='cart-right' hidden='{{!hideModalStatus}}'>
+            <text>点好了</text>
+        </view>
+        <view class='cart-right' hidden='{{hideModalStatus}}' catchtap='wxpay'>
+            <text>{{payText}}</text>
+        </view>
+    </view>
+
+    <!-- 购物车弹窗 -->
+    <view class='jcrs drawer_box_cart {{hideModalStatus ? "hidden" : "show"}}'>
+        <view class='cart-listbtn'>
+            <button class='cart-listbtn-jiacai' bindtap="powerDrawer">继续加菜</button>
+            <button class='cart-listbtn-qingkong' bindtap="EmptyCart">清空餐品</button>
+        </view>
+        <scroll-view scroll-y="true" class="cartWarp">
+            <view wx:for="{{payData}}" wx:key="{{index}}" class="foodList foodList-c " >
+                <view class='foodInfo foodInfo-c' >
+                    <view class="foodTitle name name-c {{item.foodType != taocan ? 'noMargin' : ''}}">{{item.singleProductName}}
+                        <text hidden='{{!item.normsName}}' >({{item.normsName}})</text>
+                    </view>
+                    <view class='price price-c'>
+                        <text class='price-n'>¥{{item.price}}</text>
+                    </view>
+                </view>
+                <!-- 套餐详情 -->
+				 <view class='Packagedetails' >{{item.list}}</view>
+                <!--cartControl-->
+                <view class="cartControl-wrapper cartControl-wrapper-c">
+                    <!-- 减号 -->
+                    <view class="cart-decrease">
+                        <view class="iconfont icon-jian" style="font-size:24px;color:#FFCA3B;" data-id="{{item.foodIndex}}" data-index="{{item.foodId}}" bindtap="bindMinus" data-list="{{item.list}}" data-type="{{item.foodType}}"></view>
+                    </view>
+                    <!-- 数字 -->
+                    <view class="cart-count">{{item.num}}</view>
+                    <!-- 加号 -->
+                    <view class="cart-decrease">
+                        <view class="iconfont icon-jia cart-add" style="font-size:24px;color:#FFCA3B;" bindtap="bindPlus" data-index="{{item.foodId}}"  data-list="{{item.list}}" data-type="{{item.foodType}}"  data-id="{{item.foodIndex}}" ></view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <textarea class='liuyank' rows="3" fixed='true' show-confirm-bar='false' value='' bindblur='getinfo' ></textarea>
+    </view>
+	<!-- <view hidden="{{isPay == ''}}"><web-view wx:if="isPay" src="{{payUrl}}" style='bakcground-color:blue;width:0;height:0'></web-view></view> -->
+    <!-- 购物车弹窗 -->
+
+    <!-- 选餐品弹窗 -->
+    <!-- <view class='jcrs drawer_box_choose {{hideModalChoose ? "show" : "hidden"}}'> -->
+    <view class='jcrs drawer_box_choose {{hideModalChoose ? "show" : "hidden"}}'>
+        <view class='choose-listtit'>
+            <text>{{taocanShow}}</text>
+			<text style='margin-left:20px'>¥</text>
+			 <text style='margin-left:3px;margin-right:3px;color:red'>{{taocanCell}}</text>
+			 
+        </view>
+        <view class='choose-listbtn'>
+            <button class='choose-listbtn-back' bindtap="powerDrawer_GG1">取消</button>
+            <!--cartControl-->
+            <!-- <view class="cartControl">
+                <view class="cart-decrease">
+                    <view class="inner iconfont icon-jian"></view>
+                </view>
+                <view class="cart-count">{{}}</view>
+                <view class="cart-decrease">
+                    <view class="inner iconfont icon-jia "></view>
+                </view>
+            </view> -->
+			<button class='cart-listbtn-qingkong' bindtap="goPayData">加入购物车</button>
+        </view>
+        <scroll-view scroll-y="true" class="choose_zh">
+            <view class="choose_zh_a" wx:for="{{zuheList}}" wx:key="{{index}}" wx:for-item="item">
+                <view class="choose_zh_tit">
+                    <text class="choose_zh_tit_t choose_zh_tit1">{{item.pNum}}</text>
+                    <text class="choose_zh_tit_t choose_zh_tit2">{{item.listThree.length}}选1</text>
+                    <text class="choose_zh_tit_t choose_zh_tit3" hidden="{{true}}">已选择0个</text>
+                </view>
+                <view class="page-section page-section-spacing swiper">
+                    <swiper class="swiper_b" indicator-dots="{{indicatorDots}}" circular="true" duration="300" >
+                        <swiper-item wx:for="{{item.listThree}}"  wx:for-item="listThree"  wx:key="{{index1}}" data-foodName="{{listThree.showName}}" data-foodId="{{listThree.foodNumber}}"   data-index="{{listThree.groupName}}" data-pageIndex="{{listThree.pageIndex}}" bindtap="clickZuhe">
+                            <image src="{{listThree.foodProductsPicture}}" class="choose_zh1_li_img"></image>
+                            <view class="choose_zh1_li_tit">{{listThree.showName}}</view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+                <view class="choosedlist">
+                    <view class="choosedli" bindtap=""  wx:if="{{nameList[index]}}" data-index="{{item.listThree[pageIndex].standardNumber}}">
+                       {{nameList[index]}}
+                        <view class="choosedlist_close" hidden="{{!nameList[index]}}" bindtap="delzuhe" data-index="{{index}}">×</view>
+                    </view>
+
+                </view>
+            </view>
+            
+        </scroll-view>
+    </view>
+    <!-- 选餐品弹窗 -->
+
+    <!-- 餐品规格 -->
+    <!--content-->
+    <!--使用animation属性指定需要执行的动画-->
+    <view class='drawer_box_box' wx:if="{{showModalStatus}}">
+        <!--mask-->
+        <view class="drawer_screen" bindtap="powerDrawer_modal" data-statu="close" wx:if="{{showModalStatus}}"></view>
+        <view class="drawer_box" animation="{{animationData}}">
+            <button class='powerDrawer_modal_cloose' bindtap="powerDrawer_modal" data-statu="close" wx:if="{{showModalStatus}}" data-index="{{guigeIndex}}">×</button>
+
+            <!--drawer content-->
+            <view class="drawer_title">{{guigeName}}</view>
+            <view class="drawer_content" >
+                <view class="drawer_content_tit">规格：</view>
+                <view class="drawer_content_b" >
+						<view class="select-tab {{item.standardNumber == guigeIndex ? 'active' : ''}}"  wx:for="{{guigeList}}" wx:key="{{index}}" bindtap="guigeClick" data-index="{{item.standardNumber}}">{{item.singleProductName}}{{item.standardName}}</view>
+                </view>
+            </view>
+            <view class="guige_bottom">
+                <view class='guige_jegg'>
+                    <view class='guige_jine' >¥{{guigePrice}}</view>
+                    <view class='guige_gg'>{{guigeShow}}</view>
+                </view>
+                <view class='guige_sl'>
+                    <!--cartControl-->
+                    <view class="cartControl">
+                        <view class="cart-decrease" wx:if="{{cartData[guigeIndex]}}" >
+                            <view class="inner iconfont icon-jian" bindtap="bindMinus" data-index="{{guigeIndex}}" data-type="guige"  data-foodid="{{guigeNum}}" ></view>
+                        </view>
+                        <view class="cart-count"  wx:if="{{cartData[guigeIndex]}}">{{cartData[guigeIndex]}}</view>
+                        <view class="cart-decrease">
+                            <view class="inner iconfont icon-jia " bindtap="bindPlusk" data-index="{{guigeIndex}}" data-foodid="{{guigeNum}}" data-type="guige"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 餐品规格 -->
+	
+	
+</view>

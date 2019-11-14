@@ -1,0 +1,34 @@
+<view class="pay_body">
+    <view class="pay-top">
+        <view class="pay-shop-info">
+            <view class="content">
+                <text class="iconbg">
+                    <text class="iconfont icon-shangpu" style="font-size: 20px;color: #fff;"></text>
+                </text>
+                <text class="shop-myEqument_name" id="shopName" style="line-height: 30px;">{{shopName}}</text>
+            </view>
+        </view>
+        <view class="pay-input-money">
+            <view class="input-left">输入消费金额</view>
+            <view class="input-right">
+                <text>￥</text>
+                <label id="paymoney" type="text">{{payNum}}</label>
+            </view>
+        </view>
+    </view>
+    <input id="payUrl" style="display:none" />
+    <view class="payinfo">
+        <view class="keyboard_l">
+            <view wx:for="{{pay_keyboard}}" class="paynum {{item == '0' ? 'colspan' : ''}}" data-index="{{item}}" bindtap="clickNum">{{item}}</view>
+        </view>
+        <view class="keyboard_r">
+            <view class='pay_tui'>
+                <text class='iconfont icon-tuigejian' bindtap="delNum"></text>
+            </view>
+            <!-- <view class='pay_again' bindtap="clearNum">重输</view> -->
+			 <button class="flex-item" id='suBtn' open-type="getUserInfo" data-statu="open" bindgetuserinfo="sub" style='margin-left:0;margin-right:0;padding-left:0;padding-right:0;border-radius:0;height:75%' > 
+            <view class="pay_zhifu {{subCol == 'true' ? 'active' : ''}}">确认支付</view>
+			</button>
+        </view>
+    </view>
+</view>

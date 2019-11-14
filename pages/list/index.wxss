@@ -1,0 +1,946 @@
+/* pages/list/index.wxss */
+
+.warp {
+    background: #f8f8f8;
+    position: relative;
+}
+
+.header {
+    position: relative;
+    z-index: 50;
+    box-shadow: 0px 10rpx 10rpx 0 rgba(0, 0, 0, 0.1);
+}
+
+.topWarp {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.topWarp .title {
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+}
+
+.topWarp image {
+    display: inline-block;
+}
+
+.searchWarp {
+    width: 48%;
+    border-radius: 30rpx;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20rpx;
+}
+
+.searchWarp input {
+    display: inline-block;
+    font-size: 26rpx;
+    width: 88%;
+}
+
+.userHeadWarp {
+    width: 100%;
+    height: 160rpx;
+    padding: 20rpx 30rpx;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.userHeadWarp .userHeads {
+    display: inline-block;
+    margin-right: 30rpx;
+}
+
+.userHeads:last-child {
+    margin-right: 0;
+}
+
+.userHeadWarp image {
+    display: inline-block;
+    width: 120rpx;
+    height: 120rpx;
+}
+
+/* 点餐盒子  */
+
+.tabWarp {
+    width: 100%;
+    position: absolute;
+    bottom: 100rpx;
+    left: 0;
+    right: 0;
+    /* top: 240rpx; */
+    top: 80rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.tabWarp.h240{
+	top:240rpx
+}
+.tabWarp.h80{
+	top:80rpx
+}
+.tabWarp .classWarp {
+    width: 150rpx;
+    height: 100%;
+}
+
+.tabWarp .shopWarp {
+    width: calc(100% - 150rpx);
+    height: 100%;
+    background: #fff;
+}
+
+.classList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120rpx;
+    padding: 0 16rpx;
+    font-size: 25rpx;
+    text-align: center;
+    position: relative;
+}
+
+.classList.active {
+    background: #fff;
+    color: red;
+}
+
+.classList-num {
+    position: absolute;
+    right: 6rpx;
+    top: 10%;
+    min-width: 11px;
+    height: 16px;
+    background: red;
+    border-radius: 50px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 3px;
+}
+
+.cartWarp .foodList {
+    display: block;
+}
+
+.foodList {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.foodList-c {
+    padding: 15px 0;
+}
+
+.foodInfo {
+    width: calc(100% - 70px);
+    justify-content: center;
+}
+
+.foodInfo-c {
+    position: relative;
+}
+
+.foodList .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.foodList .icon image {
+    width: 60px;
+    height: 60px;
+}
+
+.name {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 14px;
+    height: 14px;
+    color: rgb(7, 17, 27);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.name.noMargin{
+	margin-bottom: 0
+}
+.name-c {
+    width: 65%;
+}
+
+.price {
+    width: 100%;
+    display: block;
+    font-size: 12px;
+    color: #999;
+}
+
+.price-c {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: auto;
+    line-height: 14px;
+}
+
+.price-n {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(240, 20, 20);
+}
+
+.bottomCart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100rpx;
+    background: #141d27;
+    color: #fff;
+    z-index: 9999;
+}
+
+.cart-left {
+    float: left;
+    width: 65%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 15px;
+    line-height: 100rpx;
+    font-size: 20px;
+}
+
+.cart-left .cart-price {
+    display: inline-block;
+    font-size: 55rpx;
+    position: relative;
+}
+
+.cart-left .cart-price .cart-num {
+    position: absolute;
+    right: -20px;
+    top: 10%;
+    min-width: 11px;
+    height: 16px;
+    background: red;
+    border-radius: 50px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 3px;
+}
+
+.cart-right {
+    float: right;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    background: #ffca3b;
+    line-height: 100rpx;
+    font-size: 40rpx;
+}
+
+.jcrs {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.jcrstit {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.height_0 {
+    height: 0;
+    padding-top: 0;
+    margin-top: -1px;
+}
+
+.drawer_box_cart {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 100rpx;
+    height: calc(100% - 100rpx);
+    z-index: 2101;
+    transition: 0.3s all;
+}
+
+.drawer_box_cart.hidden {
+    transform: translateY(100%);
+}
+
+.drawer_box_cart.show {
+    transform: translateY(0);
+}
+
+.drawer_box_choose {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 99999;
+    transition: 0.3s all;
+}
+
+.drawer_box_choose.hidden {
+    transform: translate(100%);
+}
+
+.drawer_box_choose.show {
+    transform: translate(0);
+}
+
+.cart-listbtn {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+    position: absolute;
+    top: 0;
+    z-index: 200;
+    background: #fff;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cart-listbtn button {
+    font-size: 26rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.cart-listbtn button::after {
+    border: none;
+}
+
+.cart-listbtn-jiacai {
+    border: none;
+    background: #ffca3b;
+    color: #fff;
+    margin-left: 6px;
+    border-radius: 50px;
+}
+
+.cart-listbtn-qingkong {
+    border: none;
+    background: #ff4545;
+    color: #fff;
+    margin-right: 6px;
+    border-radius: 50px;
+}
+
+.choose-listtit{
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.choose-listbtn {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+    background: #fff;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    z-index: 100000;
+}
+
+.choose-listbtn button {
+    font-size: 26rpx;
+    height: 60rpx;
+    width: 300rpx;
+    line-height: 60rpx;
+}
+
+.choose-listbtn button::after {
+    border: none;
+}
+
+.choose-listbtn-back {
+    border: none;
+    background: #ffca3b;
+    color: #fff;
+    margin-left: 6px;
+    border-radius: 50px;
+}
+
+.cartWarp {
+    width: 90%;
+    height: calc(100% - 250rpx);
+    margin: 0 5%;
+    overflow: hidden;
+    margin-top: 100rpx;
+    white-space: nowrap;
+}
+
+.Packagedetails {
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    color: #999;
+    white-space: pre-wrap;
+	margin-top:10px
+}
+
+.liuyank {
+    width: 100%;
+    height: 120rpx;
+    padding: 5px 10px;
+    background: #ebebeb;
+    border-radius: 6px;
+    margin: 15rpx auto;
+    font-size: 14px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* cartControl 样式 */
+
+.cartControl-wrapper {
+    position: absolute;
+    right: 5px;
+    bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartControl-wrapper-c {
+    bottom: initial;
+    top: 2px;
+    right: 0;
+}
+
+.cartControl {
+    font-size: 0;
+}
+
+.cart-decrease {
+    /* padding: 5px; */
+}
+
+.cart-count {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 32px;
+}
+
+.icon-jian {
+    margin-top: -1.5px;
+}
+
+.choosebtn {
+    background: #ffca3b;
+    font-size: 10px;
+    margin: 0;
+    padding: 0 8px;
+    margin-right: 7px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+}
+
+.choosebtn::after {
+    border: none;
+}
+
+.choosebtn-num {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    min-width: 11px;
+    height: 16px;
+    background: red;
+    border-radius: 50px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 3px;
+}
+
+/* 字体图标 */
+
+@font-face {
+    font-family: 'iconfont';
+    src: url(data:application/font-woff;charset=utf-8;base64,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) format('woff'),
+         url('iconfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zuoyoujiantou:before {
+    content: "\e600";
+}
+
+.icon-gouwuche:before {
+    content: "\e601";
+}
+
+.icon-jian:before {
+    content: "\e629";
+}
+
+.icon-aixin:before {
+    content: "\e61f";
+}
+
+.icon-down:before {
+    content: "\e603";
+}
+
+.icon-cha:before {
+    content: "\e646";
+}
+
+.icon-jia:before {
+    content: "\e622";
+}
+
+.icon-gou:before {
+    content: "\e73d";
+}
+
+.icon-damuzhi:before {
+    content: "\e607";
+}
+
+.icon-weibiaoti6-copy:before {
+    content: "\e670";
+}
+
+/*主容器*/
+
+.stepper {
+    width: 80px;
+    height: 26px;
+    /*给主容器设一个边框*/
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+/*加号和减号*/
+
+.stepper text {
+    width: 19px;
+    line-height: 26px;
+    text-align: center;
+    float: left;
+}
+
+/*数值*/
+
+.stepper input {
+    width: 40px;
+    height: 26px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    /*给中间的input设置左右边框即可*/
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+/*普通样式*/
+
+.stepper .normal {
+    color: black;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+    color: #ccc;
+}
+
+/*弹窗*/
+
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1300;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}
+.drawer_box_box{
+    width: 100%;
+    height: calc(100% - 100rpx);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  position: fixed;  
+  top: 0;  
+  left: 0; 
+  z-index: 1100; 
+  overflow: hidden;  
+}
+.drawer_box {  
+  width: 650rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  z-index: 1501;  
+  background: #FFF;  
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.drawer_title{  
+  padding:10px;  
+  font-size: 16px;  
+  text-align: center;  
+}
+.drawer_content {  
+  /* height: 250px; */
+  overflow-y: scroll; /*超出父盒子高度可滚动   */
+  padding:5px 20px;
+}
+
+.drawer_content_tit {
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.drawer_content_b {
+    max-height: 150px;
+}
+
+.select-tab {
+    padding: 5px 7px;
+    border: 1px solid #eee;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    z-index: 1002;
+    display: inline-block;
+}
+.select-tab.active{
+	border:1px solid red
+}
+.guige_bottom {
+    background: #f8f8f8;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.guige_jegg {
+    width: 75%;
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.guige_jine {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff3c3c;
+}
+
+.guige_gg {
+    font-size: 10px;
+    margin-left: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.guige_sl {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 12px;
+    bottom: 6px;
+}
+
+.guige_sl .cartControl {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+}
+
+.guige_sl .cart-decrease {
+    padding: 0 5px;
+}
+
+.guige_sl .cart-decrease .iconfont {
+    font-size: 24px;
+    color: #ffca3b;
+}
+
+.guige_sl .cart-count {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.cartControl {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+}
+
+.cart-decrease .iconfont {
+    font-size: 24px;
+    color: #ffca3b;
+	padding: 5px;
+}
+
+.cart-count {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.powerDrawer_modal_cloose {
+    background: transparent;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+}
+
+.powerDrawer_modal_cloose::after {
+    border: none;
+}
+
+/* 组合套餐 */
+
+.choose_zh {
+    height:calc(100% - 180rpx);
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.choose_zh_a {
+    padding: 20px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.choose_zh_a:last-child {
+    border:none;
+}
+
+
+.choose_zh_tit {
+    height: 22px;
+    line-height: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.choose_zh_tit_t {
+    margin-right: 10px;
+}
+
+.choose_zh_tit1 {
+    font-weight: bold;
+}
+
+.choose_zh_tit2 {
+    border: 1px solid #ccc;
+    color: #ccc;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.choose_zh_tit3 {
+    color: red;
+}
+
+.choose_zh1_list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0 10px;
+    padding-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.choose_zh1_li {
+    width: 40%;
+    margin: 0 20px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.choose_zh1_li_b {
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.choose_zh1_li_img {
+    width: 300rpx;
+    height: 300rpx;
+    margin: 0 175rpx;
+	border-radius:10%
+}
+
+.choose_zh1_li_tit {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* 组合套餐轮播 */
+
+.page-section {
+    width: 100%;
+}
+
+.page-section_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-section:last-child {
+    margin-bottom: 0;
+}
+
+.page-section-gap {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+}
+
+.page-section-spacing {
+    box-sizing: border-box;
+    height: 380rpx;
+    margin-bottom: 10px;
+}
+
+.swiper_b {
+    height: 105%;
+}
+
+.page-section-title {
+    font-size: 28rpx;
+    color: #999;
+    margin-bottom: 10rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.page-section-gap .page-section-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.page-section-title {
+    padding: 0;
+}
+
+.swiper-item {
+    display: block;
+}
+
+.page-section-title {
+    margin-top: 60rpx;
+    position: relative;
+}
+
+.info {
+    position: absolute;
+    right: 0;
+    color: #353535;
+    font-size: 30rpx;
+}
+
+.page-foot {
+    margin-top: 50rpx;
+}
+
+/* 被选中的餐品 */
+
+.choosedli {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 6px;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.choosedlist_close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+}
